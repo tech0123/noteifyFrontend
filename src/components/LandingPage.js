@@ -19,7 +19,6 @@ const LandingPage = () => {
     // eslint-disable-next-line
   }, [])
 
-
   return (
     <div>
       <section className="d-flex align-items-center pt-lg-5 mt-lg-5 pb-1 pb-lg-5">
@@ -31,7 +30,7 @@ const LandingPage = () => {
             </div>
             <div className="col-lg-6 d-flex flex-column justify-content-center text-center text-lg-start p-lg-3 mt-lg-5 pt-1 ">
               <h2 className='font-monospace text-uppercase'>Unleash Your Productivity</h2>
-              <h6 className='font-monospace '> Notes at Your Fingertips</h6>
+              <h5 className='font-monospace'> Notes at Your Fingertips</h5>
 
               <div>
                 <div className="text-center text-lg-start">
