@@ -49,7 +49,7 @@ const Signup = ({ setAlert }) => {
 
   return (
     <div className="container my-5">
-      <h2>Signup To Use Notes</h2>
+      <h2>Signup To Use Noteify</h2>
 
       <Form onSubmit={handleSubmit}>
         <div className='my-4'>

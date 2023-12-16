@@ -45,7 +45,7 @@ const Login = ({ setAlert }) => {
 
     return (
         <div className="container my-5">
-            <h2>Login To Continue With Notes</h2>
+            <h2>Login To Continue With Noteify</h2>
 
             <Form onSubmit={handleSubmit}>
                 <div className='my-4'>
