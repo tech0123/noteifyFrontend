@@ -74,7 +74,7 @@ const Signup = ({ setAlert }) => {
             <Form.Control className={`bg-${darkMode ? 'dark' : 'light'} text-${!darkMode ? 'dark' : 'light'} border border-${darkMode ? 'dark' : 'light'}`} id="cpassword" type="password" placeholder="Enter confirm password:" name='cpassword' onChange={onChange} minLength={3} required value={cred.cpassword} autoComplete="cpassword" />
           </Form.Group>
 
-          <Button variant={`${!darkMode ? 'dark' : 'light'}`} type="submit">Login</Button>
+          <Button variant={`${!darkMode ? 'dark' : 'light'}`} type="submit">Signup</Button>
         </div>
 
       </Form>
