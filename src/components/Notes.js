@@ -34,15 +34,13 @@ const Notes = ({ setAlert }) => {
     }
 
     useEffect(() => {
-        if(localStorage.getItem('token'))
-{
-    getAllNotes();
-}
-else
-{
-    navigate("/login");
-}
-        
+        if (localStorage.getItem('token')) {
+            getAllNotes();
+        }
+        else {
+            navigate("/login");
+        }
+
         // eslint-disable-next-line
     }, [])
 
@@ -64,7 +62,7 @@ else
 
     return (
         <>
-            <AddNote setAlert={setAlert}/>
+            <AddNote setAlert={setAlert} />
 
             <Modal show={show} onHide={handleClose}  >
                 <Modal.Header closeButton style={{ backgroundColor: darkMode ? '#2D4356' : '#ede7de', border: 0 }}>
@@ -96,7 +94,7 @@ else
                     </Form>
                 </Modal.Body>
                 <Modal.Footer style={{ backgroundColor: darkMode ? '#2D4356' : '#ede7de', border: 0 }}>
-                    <Button disabled={note.etitle.length<3 || note.edescription.length<3 || note.etag.length<3} variant={`${!darkMode ? 'dark' : 'light'}`} onClick={handleEditNote}>Update Note</Button>
+                    <Button disabled={note.etitle.length < 3 || note.edescription.length < 3 || note.etag.length < 3} variant={`${!darkMode ? 'dark' : 'light'}`} onClick={handleEditNote}>Update Note</Button>
                 </Modal.Footer>
             </Modal>
 
