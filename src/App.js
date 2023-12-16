@@ -1,6 +1,6 @@
 import './App.css';
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Route,
   Routes
 } from "react-router-dom";
