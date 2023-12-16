@@ -7,13 +7,13 @@ const About = () => {
 
     <div className="container my-5">
     <header>
-      <h2>About Our Notes App</h2>
+      <h2>About Our Noteify App</h2>
     </header>
   
     <section>
       <h3 className='mt-4'>Our Mission</h3>
       <p>
-        At <strong>Notes</strong>, our mission is to provide a simple, intuitive, and efficient platform
+        At <strong>Noteify</strong>, our mission is to provide a simple, intuitive, and efficient platform
         for organizing and managing your notes. We understand the importance of keeping your thoughts, ideas, and
         important information in one place, and our application is designed to make that process seamless.
       </p>
@@ -71,7 +71,7 @@ const About = () => {
     </section>
   
     <footer>
-      <p>Happy note-taking,<br />The <strong>Notes</strong> Team</p>
+      <p>Happy note-taking,<br />The <strong>Noteify</strong> Team</p>
     </footer>
   </div>
   
