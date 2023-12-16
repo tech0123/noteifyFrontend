@@ -1,14 +1,25 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
 import { ModeContext } from '../context/ModeContext';
-
+import { useNavigate } from "react-router-dom";
 
 
 const LandingPage = () => {
-  
+
+
+  let navigate = useNavigate();
   const { setDarkMode } = useContext(ModeContext);
   setDarkMode(false);
+
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      navigate("/home");
+    }
+    // eslint-disable-next-line
+  }, [])
+
+
   return (
     <div>
       <section className="d-flex align-items-center pt-lg-5 mt-lg-5 pb-1 pb-lg-5">
