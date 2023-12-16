@@ -31,7 +31,7 @@ const Signup = ({ setAlert }) => {
       const json = await response.json();
       if (json.success) {
         localStorage.setItem('token', json.authtoken)
-        navigate("/");
+        navigate("/home");
         setAlert({ message: "Signedup Successfully", color: "success" });
       }
       else {

@@ -29,7 +29,7 @@ const Login = ({ setAlert }) => {
         {
             localStorage.setItem('token', json.authtoken)
             setAlert({ message: "Logged in Successfully", color: "success" });
-            navigate("/");
+            navigate("/home");
         }
         else
         {

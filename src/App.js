@@ -13,6 +13,7 @@ import AlertBox from './components/AlertBox';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import { useState } from 'react';
+import LandingPage from './components/LandingPage';
 
 function App() {
   
@@ -40,7 +41,8 @@ function App() {
               )}
               <div className="container">
                 <Routes>
-                  <Route exact path="/" element={<Home setAlert={setAlert} />}></Route>
+                  <Route exact path="/" element={<LandingPage />}></Route>
+                  <Route exact path="/home" element={<Home setAlert={setAlert} />}></Route>
                   <Route exact path="/login" element={<Login setAlert={setAlert} />}></Route>
                   <Route exact path="/signup" element={<Signup setAlert={setAlert} />}></Route>
                   <Route exact path="/about" element={<About />}></Route>
