@@ -31,7 +31,7 @@ const LandingPage = () => {
             </div>
             <div className="col-lg-6 d-flex flex-column justify-content-center text-center text-lg-start p-lg-3 mt-lg-5 pt-1 ">
               <h2 className='font-monospace text-uppercase'>Unleash Your Productivity</h2>
-              <h6 className='font-monospace '> Notes at Your Fingertips <i className="bi bi-pencil-square"></i></h6>
+              <h6 className='font-monospace '> Notes at Your Fingertips</h6>
 
               <div>
                 <div className="text-center text-lg-start">
