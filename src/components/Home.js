@@ -2,11 +2,11 @@ import React from 'react'
 import Notes from './Notes';
 
 
-const Home = ({ setAlert }) => {
+const Home = () => {
 
   return (
     <div>
-      <Notes setAlert={setAlert} />
+      <Notes  />
     </div>
   )
 }

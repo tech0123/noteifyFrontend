@@ -4,7 +4,7 @@ import React, { useContext, useState } from 'react'
 import { ModeContext } from '../context/ModeContext';
 import NoteContext from '../context/NoteContext';
 
-const AddNote = ({ setAlert }) => {
+const AddNote = () => {
 
     const { darkMode } = useContext(ModeContext);
     const { addNote } = useContext(NoteContext);
@@ -15,8 +15,6 @@ const AddNote = ({ setAlert }) => {
         e.preventDefault();
         addNote(note.title, note.description, note.tag);
         setnote({ title: "", description: "", tag: "" });
-        setAlert({ message: "Note Created Successfully", color: "success" });
-
     }
 
     const onChange = (e) => {
@@ -32,12 +30,12 @@ const AddNote = ({ setAlert }) => {
 
                     <Form.Group className="mb-3">
                         <Form.Label>Title:</Form.Label>
-                        <Form.Control className={`bg-${darkMode ? 'dark' : 'light'} text-${!darkMode ? 'dark' : 'light'} border border-${darkMode ? 'dark' : 'light'}`} id="title" type="text" placeholder="Enter title:" name='title' onChange={onChange} minLength={3} required  value={note.title} />
+                        <Form.Control className={`bg-${darkMode ? 'dark' : 'light'} text-${!darkMode ? 'dark' : 'light'} border border-${darkMode ? 'dark' : 'light'}`} id="title" type="text" placeholder="Enter title:" name='title' onChange={onChange} minLength={3} required value={note.title} />
                     </Form.Group>
 
                     <Form.Group className="mb-3">
                         <Form.Label>Description:</Form.Label>
-                        <Form.Control className={`bg-${darkMode ? 'dark' : 'light'} text-${!darkMode ? 'dark' : 'light'} border border-${darkMode ? 'dark' : 'light'}`} id="description" type="text" placeholder="Enter description:" name='description' onChange={onChange} minLength={3} required  value={note.description} />
+                        <Form.Control className={`bg-${darkMode ? 'dark' : 'light'} text-${!darkMode ? 'dark' : 'light'} border border-${darkMode ? 'dark' : 'light'}`} id="description" type="text" placeholder="Enter description:" name='description' onChange={onChange} minLength={3} required value={note.description} />
                     </Form.Group>
 
 
@@ -46,7 +44,7 @@ const AddNote = ({ setAlert }) => {
                         <Form.Control className={`bg-${darkMode ? 'dark' : 'light'} text-${!darkMode ? 'dark' : 'light'} border border-${darkMode ? 'dark' : 'light'}`} id="tag" type="text" placeholder="Enter tag:" name='tag' onChange={onChange} minLength={3} required value={note.tag} />
                     </Form.Group>
 
-                    <Button disabled={note.title.length<3 || note.description.length<3 || note.tag.length<3} variant={`${!darkMode ? 'dark' : 'light'}`} type="submit" onClick={handleAddNote} >Add Note</Button>
+                    <Button disabled={note.title.length < 3 || note.description.length < 3 || note.tag.length < 3} variant={`${!darkMode ? 'dark' : 'light'}`} type="submit" onClick={handleAddNote} >Add Note</Button>
                 </div>
 
             </Form>

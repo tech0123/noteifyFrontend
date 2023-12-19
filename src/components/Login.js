@@ -3,11 +3,14 @@ import Form from 'react-bootstrap/Form';
 import React, { useContext, useState } from 'react'
 import { ModeContext } from '../context/ModeContext';
 import { useNavigate } from "react-router-dom";
+import { AlertContext } from '../context/AlertContext';
 
-const Login = ({ setAlert }) => {
+
+const Login = () => {
 
     let navigate = useNavigate();
     const { darkMode } = useContext(ModeContext);
+    const { setAlertinfo } = useContext(AlertContext);
 
     const [cred, setCred] = useState({ email: "", password: "" })
 
@@ -28,12 +31,11 @@ const Login = ({ setAlert }) => {
         if(json.success)
         {
             localStorage.setItem('token', json.authtoken)
-            setAlert({ message: "Logged in Successfully", color: "success" });
             navigate("/home");
         }
         else
         {
-            setAlert({ message: "Invalid Credentials", color: "danger" });
+            setAlertinfo({ message: "Invalid Credentials", color: "danger" });
         }
 
         setCred({ email: "", password: "" });

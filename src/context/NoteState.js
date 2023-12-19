@@ -1,8 +1,12 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import NoteContext from './NoteContext';
+import { AlertContext } from './AlertContext';
+
 
 const NoteState = (props) => {
-
+  
+  const { setAlertinfo } = useContext(AlertContext);
+  
   const host = "https://noteifybackend.onrender.com";
 
   const notesInitial = []
@@ -41,6 +45,8 @@ const NoteState = (props) => {
 
     getAllNotes();
 
+    setAlertinfo({ message: "Note Updated Successfully", color: "success" });
+
   }
 
   const deleteNote = async (id) => {
@@ -55,6 +61,7 @@ const NoteState = (props) => {
     });
 
     getAllNotes();
+    setAlertinfo({ message: "Note Deleted Successfully", color: "success" });
   }
 
 
@@ -73,7 +80,7 @@ const NoteState = (props) => {
     });
 
     getAllNotes();
-
+    setAlertinfo({ message: "Note Updated Successfully", color: "success" });
   }
 
 

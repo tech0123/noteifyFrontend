@@ -5,7 +5,7 @@ import NoteContext from '../context/NoteContext';
 
 const NoteItem = (props) => {
 
-  const { notes, updatenote, setAlert } = props;
+  const { notes, updatenote } = props;
   const { darkMode } = useContext(ModeContext);
   const { deleteNote } = useContext(NoteContext);
 
@@ -20,7 +20,7 @@ const NoteItem = (props) => {
             <span>
               <i className="bi bi-pencil-square m-1 text-primary" onClick={() => { updatenote(notes) }}></i>
               <i className="bi bi-trash m-1 text-danger" onClick={() => {
-                deleteNote(notes._id); setAlert({ message: "Note Deleted Successfully", color: "success" });
+                deleteNote(notes._id);
               }}></i>
             </span>
           </div>

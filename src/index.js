@@ -4,10 +4,13 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import App from './App';
+import { AlertState } from './context/AlertContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <AlertState>
+      <App />
+    </AlertState>
   </React.StrictMode>
 );

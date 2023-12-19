@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const Notes = ({ setAlert }) => {
+const Notes = () => {
 
     let navigate = useNavigate();
 
@@ -26,7 +26,7 @@ const Notes = ({ setAlert }) => {
         e.preventDefault();
         editNote(note.eid, note.etitle, note.edescription, note.etag);
         handleClose();
-        setAlert({ message: "Note Updated Successfully", color: "success" });
+       
     }
 
     const onChange = (e) => {
@@ -62,7 +62,7 @@ const Notes = ({ setAlert }) => {
 
     return (
         <>
-            <AddNote setAlert={setAlert} />
+            <AddNote />
 
             <Modal show={show} onHide={handleClose}  >
                 <Modal.Header closeButton style={{ backgroundColor: darkMode ? '#2D4356' : '#ede7de', border: 0 }}>
@@ -108,7 +108,7 @@ const Notes = ({ setAlert }) => {
                 </div>
                 {
                     notes.map((notes) => {
-                        return <NoteItem notes={notes} updatenote={updatenote} setAlert={setAlert} key={notes._id} />;
+                        return <NoteItem notes={notes} updatenote={updatenote} key={notes._id} />;
                     })
                 }
             </div>

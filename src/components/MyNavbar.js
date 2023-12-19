@@ -46,7 +46,7 @@ const MyNavbar = ({ onDarkModeToggle }) => {
 
             <Navbar expand="lg" className="bg-body-tertiary" data-bs-theme={`${darkMode ? 'dark' : 'light'}`}>
                 <Container fluid>
-                    <Navbar.Brand><Nav.Link as={Link} to="/" className='font-monospace text-center'><i className="bi bi-journal-text mx-2 p-0"></i><span className=''>Noteify</span></Nav.Link></Navbar.Brand>
+                    <Navbar.Brand><Nav.Link as={Link} to="/" className='font-monospace text-center'><i className="bi bi-journal-text mx-2 p-0" ></i><span className=''>Noteify</span></Nav.Link></Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -57,10 +57,10 @@ const MyNavbar = ({ onDarkModeToggle }) => {
                             {
                                 localStorage.getItem('token') &&
                                 <>
-                                    <Nav.Link as={Link} to="/home" className={`${location.pathname === "/home" ? "active" : ""}`} >Home</Nav.Link>
+                                    <Nav.Link as={Link} to="/home" className={`mynav${location.pathname === "/Home" ? "active" : ""}`} >Home</Nav.Link>
                                 </>
                             }
-                            <Nav.Link as={Link} to="/about" className={`${location.pathname === "/about" ? "active" : ""}`} >About</Nav.Link>
+                            <Nav.Link as={Link} to="/about" className={`mynav${location.pathname === "/About" ? "active" : ""}`} >About</Nav.Link>
 
                         </Nav>
                         {
