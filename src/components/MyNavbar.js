@@ -57,10 +57,10 @@ const MyNavbar = ({ onDarkModeToggle }) => {
                             {
                                 localStorage.getItem('token') &&
                                 <>
-                                    <Nav.Link as={Link} to="/home" className={`mynav${location.pathname === "/Home" ? "active" : ""}`} >Home</Nav.Link>
+                                    <Nav.Link as={Link} to="/home" className={`mynav ${location.pathname === "/Home" ? "active" : ""}`} >Home</Nav.Link>
                                 </>
                             }
-                            <Nav.Link as={Link} to="/about" className={`mynav${location.pathname === "/About" ? "active" : ""}`} >About</Nav.Link>
+                            <Nav.Link as={Link} to="/about" className={`mynav ${location.pathname === "/About" ? "active" : ""}`} >About</Nav.Link>
 
                         </Nav>
                         {
@@ -76,8 +76,12 @@ const MyNavbar = ({ onDarkModeToggle }) => {
                         {
                             !localStorage.getItem('token') ?
                                 <Form className="d-flex">
-                                    <Button variant={`outline-${!darkMode ? 'dark' : 'light'}`} className='mx-1' as={Link} to="/login">Login</Button>
-                                    <Button variant={`outline-${!darkMode ? 'dark' : 'light'}`} className='mx-1' as={Link} to="/signup">Signup</Button>
+                                    {location.pathname !== "/login" &&
+                                        <Button variant={`outline-${!darkMode ? 'dark' : 'light'}`} className='mx-1' as={Link} to="/login">Login</Button>
+                                    }
+                                    {location.pathname !== "/signup" &&
+                                        <Button variant={`outline-${!darkMode ? 'dark' : 'light'}`} className='mx-1' as={Link} to="/signup">Signup</Button>
+                                    }
                                 </Form> : <Form className="d-flex">
                                     <Button variant={`outline-${!darkMode ? 'dark' : 'light'}`} className='mx-1' onClick={handleLogout}>Logout</Button>
                                 </Form>
