@@ -4,6 +4,7 @@ import React, { useContext, useState } from 'react'
 import { ModeContext } from '../context/ModeContext';
 import { useNavigate } from "react-router-dom";
 import { AlertContext } from '../context/AlertContext';
+import { LoadingBarContext } from '../context/LoadingBarContext';
 
 
 const Login = () => {
@@ -11,13 +12,18 @@ const Login = () => {
     let navigate = useNavigate();
     const { darkMode } = useContext(ModeContext);
     const { setAlertinfo } = useContext(AlertContext);
+    const { setProgress } = useContext(LoadingBarContext);
+
 
     const [cred, setCred] = useState({ email: "", password: "" })
 
     const handleSubmit = async (e) => {
 
         e.preventDefault();
+        setProgress(10);
 
+
+        setProgress(70);
         const response = await fetch(`https://noteifybackend.onrender.com/api/auth/login`, {
             method: "POST",
             headers: {
@@ -27,17 +33,17 @@ const Login = () => {
             body: JSON.stringify({ email: cred.email, password: cred.password }),
         });
 
+
         const json = await response.json();
-        if(json.success)
-        {
+        if (json.success) {
             localStorage.setItem('token', json.authtoken)
             navigate("/home");
+            setAlertinfo({ message: "Logged in Successfully", color: "success" });
         }
-        else
-        {
+        else {
             setAlertinfo({ message: "Invalid Credentials", color: "danger" });
         }
-
+        setProgress(100);
         setCred({ email: "", password: "" });
     }
 

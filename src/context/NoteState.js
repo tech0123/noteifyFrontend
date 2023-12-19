@@ -1,12 +1,15 @@
 import { useContext, useState } from 'react';
 import NoteContext from './NoteContext';
 import { AlertContext } from './AlertContext';
+import { LoadingBarContext } from '../context/LoadingBarContext';
 
 
 const NoteState = (props) => {
   
   const { setAlertinfo } = useContext(AlertContext);
-  
+  const { setProgress } = useContext(LoadingBarContext);
+
+
   const host = "https://noteifybackend.onrender.com";
 
   const notesInitial = []
@@ -27,11 +30,14 @@ const NoteState = (props) => {
 
     const json = await response.json();
     setnotes(json);
+    setProgress(100);
   }
 
 
   const addNote = async (title, description, tag) => {
-
+    
+    setProgress(10);
+    setProgress(65);
     await fetch(`${host}/api/notes/createnote`, {
       method: "POST",
       headers: {
@@ -45,12 +51,16 @@ const NoteState = (props) => {
 
     getAllNotes();
 
-    setAlertinfo({ message: "Note Updated Successfully", color: "success" });
+    setTimeout(() => {
+      setAlertinfo({ message: "Note Added Successfully", color: "success" });
+    }, 900);
+    
 
   }
 
   const deleteNote = async (id) => {
-
+    setProgress(10);
+    setProgress(65);
     await fetch(`${host}/api/notes/delete/${id}`, {
       method: "DELETE",
       headers: {
@@ -61,14 +71,19 @@ const NoteState = (props) => {
     });
 
     getAllNotes();
-    setAlertinfo({ message: "Note Deleted Successfully", color: "success" });
+
+    setTimeout(() => {
+      setAlertinfo({ message: "Note Deleted Successfully", color: "success" });
+      
+    }, 900);
   }
 
 
 
 
   const editNote = async (id, title, description, tag) => {
-
+    setProgress(10);
+    setProgress(65);
     await fetch(`${host}/api/notes/update/${id}`, {
       method: "PUT",
       headers: {
@@ -80,7 +95,10 @@ const NoteState = (props) => {
     });
 
     getAllNotes();
-    setAlertinfo({ message: "Note Updated Successfully", color: "success" });
+
+    setTimeout(() => {
+      setAlertinfo({ message: "Note Updated Successfully", color: "success" });
+    }, 900);
   }
 
 

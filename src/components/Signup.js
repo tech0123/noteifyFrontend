@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import React, { useContext, useState } from 'react'
 import { ModeContext } from '../context/ModeContext';
 import { AlertContext } from '../context/AlertContext';
+import { LoadingBarContext } from '../context/LoadingBarContext';
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
@@ -10,17 +11,21 @@ const Signup = () => {
   let navigate = useNavigate();
   const { darkMode } = useContext(ModeContext);
   const { setAlertinfo } = useContext(AlertContext);
+  const { setProgress } = useContext(LoadingBarContext);
 
   const [cred, setCred] = useState({ name: "", email: "", password: "", cpassword: "" })
 
   const handleSubmit = async (e) => {
 
     e.preventDefault();
+    setProgress(10);
 
     if (cred.password !== cred.cpassword) {
-            setAlertinfo({ message: "Password and Confirm Password Are Not Same", color: "danger" });
+      setAlertinfo({ message: "Password and Confirm Password Are Not Same", color: "danger" });
     }
     else {
+      setProgress(70);
+
       const response = await fetch(`https://noteifybackend.onrender.com/api/auth/createuser`, {
         method: "POST",
         headers: {
@@ -34,12 +39,12 @@ const Signup = () => {
       if (json.success) {
         localStorage.setItem('token', json.authtoken)
         navigate("/home");
-        // setAlert({ message: "Signedup Successfully", color: "success" });
+        setAlertinfo({ message: "Signedup Successfully", color: "success" });
       }
       else {
         setAlertinfo({ message: "User Already Exists With This Email", color: "danger" });
       }
-
+      setProgress(100);
       setCred({ name: "", email: "", password: "", cpassword: "" });
     }
 
